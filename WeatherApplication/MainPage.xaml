@@ -1,0 +1,49 @@
+﻿<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+ xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+ x:Class="WeatherApplication.MainPage">
+
+    <ContentPage.Resources>
+        <Style x:Key="DayFrameStyle" TargetType="Frame">
+            <Setter Property="BorderColor" Value="LightGray" />
+            <Setter Property="CornerRadius" Value="10" />
+            <Setter Property="Padding" Value="10" />
+            <Setter Property="Margin" Value="0,5" />
+        </Style>
+        <Style x:Key="DateLabelStyle" TargetType="Label">
+            <Setter Property="FontSize" Value="16" />
+            <Setter Property="FontAttributes" Value="Bold" />
+        </Style>
+        <Style x:Key="TempLabelStyle" TargetType="Label">
+            <Setter Property="FontSize" Value="18" />
+        </Style>
+        <Style x:Key="DescriptionLabelStyle" TargetType="Label">
+            <Setter Property="FontSize" Value="14" />
+            <Setter Property="TextColor" Value="Gray" />
+        </Style>
+    </ContentPage.Resources>
+
+    <RefreshView x:Name="refreshView" Refreshing="OnRefresh">
+        <ScrollView>
+            <VerticalStackLayout Spacing="25" Padding="30">
+
+                <Entry x:Name="cityEntry" Placeholder="Enter city name" />
+
+                <Button Text="Get Weather" Clicked="OnGetWeatherClicked" />
+
+                <ActivityIndicator x:Name="loadingIndicator" IsRunning="False" IsVisible="False" />
+                <Label x:Name="temperatureLabel" Text="Temperature: " FontSize="20" />
+                <Label x:Name="weatherLabel" Text="Weather: " FontSize="20" />
+                <Label x:Name="humidityLabel" Text="Humidity: " FontSize="20" />
+                <Label x:Name="windSpeedLabel" Text="Wind Speed: " FontSize="20" />
+                <Label x:Name="pressureLabel" Text="Pressure: " FontSize="20" />
+                <Label x:Name="localTimeLabel" Text="Local Time: " FontSize="20" />
+                <Image x:Name="weatherIcon" WidthRequest="100" HeightRequest="100" />
+
+                <StackLayout x:Name="forecastLayout" Orientation="Vertical" Spacing="10">
+                </StackLayout>
+
+            </VerticalStackLayout>
+        </ScrollView>
+    </RefreshView>
+
+</ContentPage>
